@@ -1,0 +1,7 @@
+.questions{
+    margin-top: 100px;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+}
