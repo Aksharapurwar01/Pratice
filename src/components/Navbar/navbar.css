@@ -10,7 +10,6 @@
 }
 
 .nav {
-	position: fixed;
 	top: 0;
 	width: 98%;
 	display: flex;

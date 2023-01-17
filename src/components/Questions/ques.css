@@ -1,0 +1,10 @@
+.buttom-poll{
+    justify-content: center !important;
+}
+
+.avatar{
+    border-radius: 50%;
+    width: 100px !important;
+    height: 100px !important;
+    margin: auto;
+}

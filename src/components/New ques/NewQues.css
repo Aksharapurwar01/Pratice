@@ -1,0 +1,8 @@
+.centered {
+    margin: 200px auto;
+    border: 1px solid lightgrey;
+}
+
+.option{
+    margin-bottom: 15px !important;
+}

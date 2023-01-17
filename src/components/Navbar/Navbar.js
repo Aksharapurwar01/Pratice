@@ -8,8 +8,8 @@ export default function Navbar() {
          <div className="nav">
             <div>
                 <NavLink className='nav-link'>Home</NavLink>
-                <NavLink className='nav-link'>Leaderboard</NavLink>
-                <NavLink className='nav-link'>New Question</NavLink>
+                <NavLink className='nav-link' to="/leaderboard">Leaderboard</NavLink>
+                <NavLink className='nav-link' to="/add">New Question</NavLink>
             </div>
             <div>
                 <span>
