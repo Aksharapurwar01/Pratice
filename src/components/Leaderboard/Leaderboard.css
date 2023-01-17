@@ -13,4 +13,5 @@
     height: 200px !important;
     align-items: center;
     padding: 30px;
+    border: 1px solid lightgrey;
 }
