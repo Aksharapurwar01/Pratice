@@ -11,7 +11,7 @@ function Leaderboard(props) {
     <>
       {props.leaderboardData
         ? props.leaderboardData.map((user) => (
-            <Card sx={{ maxWidth: 345 }} className="card">
+            <Card key={user.id} sx={{ maxWidth: 345 }} className="card">
               <CardMedia
                 component="img"
                 alt="green iguana"

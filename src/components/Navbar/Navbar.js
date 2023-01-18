@@ -1,24 +1,35 @@
-import React from 'react';
+import React from "react";
 import { NavLink } from "react-router-dom";
-import './navbar.css';
+import "./navbar.css";
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <>
-         <div className="nav">
-            <div>
-                <NavLink className='nav-link'>Home</NavLink>
-                <NavLink className='nav-link' to="/leaderboard">Leaderboard</NavLink>
-                <NavLink className='nav-link' to="/add">New Question</NavLink>
-            </div>
-            <div>
-                <span>
-                    <strong>name</strong>
-                </span>
-                <button type="submit" className="nav-link">Logout</button>
-            </div>
+      <div className="navbar">
+        <div>
+          <NavLink className="nav-link" to="/">
+            Home
+          </NavLink>
+          <NavLink className="nav-link" to="/leaderboard">
+            Leaderboard
+          </NavLink>
+          <NavLink className="nav-link" to="/add">
+            New Question
+          </NavLink>
         </div>
-      
+        <div>
+          <span>
+            <strong>{props && props.currentUser.name}</strong>
+          </span>
+          <button
+            type="submit"
+            className="nav-link"
+            onClick={(e) => props.logout(e)}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
     </>
-  )
+  );
 }

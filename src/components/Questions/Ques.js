@@ -7,13 +7,12 @@ import Typography from "@mui/material/Typography";
 import "./ques.css";
 import { connect } from "react-redux";
 import { formatQuestion, formatDate } from "../../utils/helpers";
-import CardMedia from '@mui/material/CardMedia';
+import CardMedia from "@mui/material/CardMedia";
+import { useNavigate } from "react-router-dom";
 
 function Ques(props) {
-  console.log(props, "propsques");
-  const { name, id, avatar,timestamp, optionOne, optionTwo, hasReplied } =
-    props.question;
-
+  const { name, id, avatar, timestamp, optionOne, optionTwo } = props.question;
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,12 +20,12 @@ function Ques(props) {
         sx={{ minWidth: 275, textAlign: "center", border: "1px solid green" }}
       >
         <CardContent>
-        <CardMedia
-        sx={{ height: 140 }}
-        image={avatar}
-        title="avatar"
-        className="avatar"
-      />
+          <CardMedia
+            sx={{ height: 140 }}
+            image={avatar}
+            title="avatar"
+            className="avatar"
+          />
           <Typography
             sx={{ fontSize: 18, fontWeight: 700 }}
             color="black"
@@ -59,7 +58,6 @@ function Ques(props) {
 
 const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
   const question = questions[id];
-  console.log("authedUser", authedUser, users, questions);
   return {
     authedUser,
     question: question
