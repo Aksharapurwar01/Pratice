@@ -4,15 +4,17 @@ import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { handleInitialData } from "./actions/shared";
 import Leaderboard from "./components/Leaderboard/Leaderboard";
 import NewQues from "./components/New ques/NewQues";
 import LoadingBar from "react-redux-loading-bar";
 import { setAuthedUser } from "../src/actions/authedUser";
+import PollResult from "./components/PollResult/PollResult";
+import PollForm from "./components/Poll Form/PollForm";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App(props) {
-  console.log("props", props);
   useEffect(() => {
     props.dispatch(handleInitialData());
   }, []);
@@ -24,31 +26,37 @@ function App(props) {
   return (
     <Fragment>
       <LoadingBar />
-      <div>
-        {props.loading === true ? (
-          <Login />
-        ) : (
-          <div>
-            <Navbar currentUser={props.currentUser} logout={logout} />
+      <>
+        {props && props.authedUser && props.authedUser.length ? (
+          <Navbar currentUser={props.currentUser} logout={logout} />
+        ) : null}
+
+        {props.loading === true ? null : (
+          <>
             <Routes>
-              <Route path="/" exact element={<Dashboard />}></Route>
-              <Route
-                path="/leaderboard"
-                exact
-                element={<Leaderboard />}
-              ></Route>
-              <Route path="/add" exact element={<NewQues />}></Route>
+              <Route path="/login" exact element={<Login />} />
+              <Route element={<ProtectedRoute user={props.authedUser} />}>
+                <Route path="/" exact element={<Dashboard />}></Route>
+                <Route path="/leaderboard" exact element={<Leaderboard />} />
+                <Route path="/add" exact element={<NewQues />} />
+                <Route
+                  path="/question/:id/result"
+                  exact
+                  element={<PollResult />}
+                />
+                <Route exact path="/question/:id" element={<PollForm />} />
+              </Route>
               <Route path="*" element={<p>404! page not found</p>} />
             </Routes>
-          </div>
+          </>
         )}
-      </div>
+      </>
     </Fragment>
   );
 }
 
 const mapStateToProps = ({ authedUser, users }) => ({
-  loading: authedUser === null,
+  loading: JSON.stringify(users) === JSON.stringify({}),
   currentUser: users[authedUser],
   authedUser,
 });

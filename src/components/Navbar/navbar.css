@@ -19,3 +19,8 @@
 	background-color: white;
     border-bottom: 1px solid black;
 }
+
+.nav-link.active {
+	color: #3d3b3b;
+	font-weight: 900;
+}

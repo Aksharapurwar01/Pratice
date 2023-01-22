@@ -14,7 +14,7 @@ function Leaderboard(props) {
             <Card key={user.id} sx={{ maxWidth: 345 }} className="card">
               <CardMedia
                 component="img"
-                alt="green iguana"
+                alt="avatar"
                 height="140"
                 image={user.avatarURL}
                 className="avatar-leader"

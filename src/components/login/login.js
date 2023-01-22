@@ -12,6 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthedUser } from "../../actions/authedUser";
+import './login.css';
 
 function Login(props) {
   const theme = createTheme();
@@ -87,6 +88,7 @@ function Login(props) {
               sx={{
                 mt: 1,
               }}
+              className="login"
             >
               <TextField
                 id="outlined-select-currency"
