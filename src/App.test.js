@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import App from "./App";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import reducer from "./reducers";
+import middleware from "./middleware";
+import { legacy_createStore as createStore } from "redux";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const store = createStore(reducer, middleware);
+
+test("renders learn react link", () => {
+  var view = render(
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
+  );
+  expect(view).toMatchSnapshot();
 });

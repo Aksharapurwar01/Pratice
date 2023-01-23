@@ -7,13 +7,13 @@ export default function Navbar(props) {
     <>
       <div className="navbar">
         <div>
-          <NavLink className="nav-link" to="/">
+          <NavLink data-testid='nav-link' className="nav-link" to="/">
             Home
           </NavLink>
-          <NavLink className="nav-link" to="/leaderboard">
+          <NavLink data-testid='nav-link' className="nav-link" to="/leaderboard">
             Leaderboard
           </NavLink>
-          <NavLink className="nav-link" to="/add">
+          <NavLink data-testid='nav-link' className="nav-link" to="/add">
             New Question
           </NavLink>
         </div>

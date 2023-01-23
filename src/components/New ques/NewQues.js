@@ -38,20 +38,24 @@ function NewQues(props) {
               label="option1"
               value={optionOneText}
               fullWidth
+              data-testid='input-one'
               onChange={(e) => {
                 setoptionOneText(e.target.value.trimStart());
               }}
               className="option"
+              placeholder="option1"
             />
             <TextField
               id="outlined-helperText"
               label="option2"
               value={optionTwoText}
               fullWidth
+              data-testid='input-two'
               onChange={(e) => {
                 setoptionTwoText(e.target.value.trimStart());
               }}
               className="option"
+              placeholder="option2"
             />
           </form>
         </CardContent>
@@ -63,6 +67,7 @@ function NewQues(props) {
             onClick={(e) => {
               handleSubmit(e);
             }}
+            data-testid='submit-button'
           >
             Submit
           </Button>
