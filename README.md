@@ -1,10 +1,10 @@
 The React-Redux Project is a React Employee Pole App is developed for learning redux under Udacity React Nanodegree. This provides functionalities for users like 
-1.Log in.
-2.Dashboard.
-3.LeaderBoard.
-4.adding new poll.
-5.show poll.
-6.participate in poll.
+- Log in.
+- Dashboard.
+- LeaderBoard.
+- Adding new poll.
+- Show poll.
+- Participate in poll.
 ## Project Setup
 
 - Clone the Project.
