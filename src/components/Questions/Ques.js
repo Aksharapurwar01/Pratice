@@ -11,20 +11,25 @@ import CardMedia from "@mui/material/CardMedia";
 import { useNavigate } from "react-router-dom";
 
 function Ques(props) {
-  const { name, id, avatar, timestamp, optionOne, optionTwo,hasVoted } = props.question;
+  const { name, id, avatar, timestamp, optionOne, optionTwo, hasVoted } =
+    props.question;
   const navigate = useNavigate();
 
   const showPoll = () => {
     if (hasVoted) {
-        navigate(`/questions/${id}/result`);
+      navigate(`/questions/${id}/result`);
     } else {
-        navigate(`/questions/${id}`);
+      navigate(`/questions/${id}`);
     }
-}
+  };
   return (
     <>
       <Card
-        sx={{ minWidth: 275, textAlign: "center", border: "1px solid lightgrey" }}
+        sx={{
+          minWidth: 275,
+          textAlign: "center",
+          border: "1px solid lightgrey",
+        }}
       >
         <CardContent>
           <CardMedia
@@ -45,7 +50,6 @@ function Ques(props) {
             {formatDate(timestamp)}
           </Typography>
           <Typography>
-        
             {optionOne && optionOne.text}
             <br />
             <strong>OR</strong>

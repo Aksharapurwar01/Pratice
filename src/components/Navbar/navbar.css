@@ -1,26 +1,26 @@
 .nav-link {
-	background: none;
-	border: none;
-	text-decoration: underline;
-	cursor: pointer;
-	padding-left: 20px;
-	color: #595555;
-	font-size: 16px;
-	font-weight: 500;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-left: 20px;
+  color: #595555;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .navbar {
-	top: 0;
-	width: 98%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 20px;
-	background-color: white;
-    border-bottom: 1px solid black;
+  top: 0;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  background-color: white;
+  border-bottom: 1px solid black;
 }
 
 .nav-link.active {
-	color: #3d3b3b;
-	font-weight: 900;
+  color: #3d3b3b;
+  font-weight: 900;
 }

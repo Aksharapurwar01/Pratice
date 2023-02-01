@@ -1,17 +1,17 @@
 .avatar-leader {
-    border-radius: 50%;
-    width: 150px !important;
-    height: 150px !important;
+  border-radius: 50%;
+  width: 150px !important;
+  height: 150px !important;
 }
 
 .card-poll {
-    margin: 88px auto!important;
-    width:70% !important;
-    display:flex !important;
-    flex-direction: row !important;
-    max-width: 70% !important;
-    height: 300px !important;
-    align-items: center;
-    padding: 30px;
-    border: 1px solid lightgrey;
+  margin: 88px auto !important;
+  width: 70% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  max-width: 70% !important;
+  height: 300px !important;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid lightgrey;
 }

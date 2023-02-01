@@ -14,7 +14,7 @@ test("Nav component has three nav links", () => {
   expect(navLinks.length).toBe(3);
 });
 
-test("Nav component has three nav links", () => {
+test("Nav component", () => {
   const logout = {};
   render(
     <Router>
