@@ -6,3 +6,12 @@
 .option{
     margin-bottom: 15px !important;
 }
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    height: 30px;
+}

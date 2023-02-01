@@ -33,7 +33,7 @@ function PollForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.dispatch(handleAddAnswer({ optionSelected, id }));
-    navigate(`/question/${id}/result`);
+    navigate(`/questions/${id}/result`);
   };
   return (
     <>

@@ -16,9 +16,9 @@ function Ques(props) {
 
   const showPoll = () => {
     if (hasVoted) {
-        navigate(`/question/${id}/result`);
+        navigate(`/questions/${id}/result`);
     } else {
-        navigate(`/question/${id}`);
+        navigate(`/questions/${id}`);
     }
 }
   return (

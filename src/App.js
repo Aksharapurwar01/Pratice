@@ -40,11 +40,11 @@ function App(props) {
                 <Route path="/leaderboard" exact element={<Leaderboard />} />
                 <Route path="/add" exact element={<NewQues />} />
                 <Route
-                  path="/question/:id/result"
+                  path="/questions/:id/result"
                   exact
                   element={<PollResult />}
                 />
-                <Route exact path="/question/:id" element={<PollForm />} />
+                <Route exact path="/questions/:id" element={<PollForm />} />
               </Route>
               <Route path="*" element={<p>404! page not found</p>} />
             </Routes>
