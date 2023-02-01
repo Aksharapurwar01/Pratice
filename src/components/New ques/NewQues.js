@@ -5,7 +5,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleAddQuestion } from "../../actions/questions";
@@ -15,7 +14,7 @@ function NewQues(props) {
   const navigate = useNavigate();
   const [optionOneText, setoptionOneText] = useState("");
   const [optionTwoText, setoptionTwoText] = useState("");
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     props.dispatch(handleAddQuestion({ optionOneText, optionTwoText }));
@@ -32,27 +31,25 @@ function NewQues(props) {
             Would you rather...
           </Typography>
 
-          <form>
-            <TextField
+          <form className="input">
+            <input
               id="outlined-helperText"
               label="option1"
               value={optionOneText}
-              fullWidth
-              data-testid='input-one'
+              data-testid="input-one"
               onChange={(e) => {
-                setoptionOneText(e.target.value.trimStart());
+                setoptionOneText(e.target.value);
               }}
               className="option"
               placeholder="option1"
             />
-            <TextField
+            <input
               id="outlined-helperText"
               label="option2"
               value={optionTwoText}
-              fullWidth
-              data-testid='input-two'
+              data-testid="input-two"
               onChange={(e) => {
-                setoptionTwoText(e.target.value.trimStart());
+                setoptionTwoText(e.target.value);
               }}
               className="option"
               placeholder="option2"
@@ -67,7 +64,7 @@ function NewQues(props) {
             onClick={(e) => {
               handleSubmit(e);
             }}
-            data-testid='submit-button'
+            data-testid="submit-button"
           >
             Submit
           </Button>
