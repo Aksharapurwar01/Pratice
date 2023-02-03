@@ -1,7 +1,6 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -12,7 +11,11 @@ import MenuItem from "@mui/material/MenuItem";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthedUser } from "../../actions/authedUser";
-import './login.css';
+import "./login.css";
+import history from "../../history";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 function Login(props) {
   const theme = createTheme();
@@ -27,9 +30,19 @@ function Login(props) {
     e.preventDefault();
     dispatch(setAuthedUser(user));
     if (user) {
-      navigate("/");
+      if (history.location.pathname !== "") {
+        navigate(history.location.pathname);
+      } else {
+        navigate("/");
+      }
     }
   };
+
+  useEffect(() => {
+    if (props.authedUser !== "") {
+      navigate("/");
+    }
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -59,6 +72,7 @@ function Login(props) {
               marginLeft: "auto",
               margin: "auto",
             }}
+            alt="login"
           />
         </Grid>
         <Grid item elevation={6}>
@@ -90,35 +104,40 @@ function Login(props) {
               }}
               className="login"
             >
-              <TextField
-                id="outlined-select-currency"
-                select
-                label="user"
-                fullWidth
-                onChange={(e) => changeUser(e.target.value)}
-              >
-                {Object.keys(props.users).map((user) => (
-                  <MenuItem
-                    key={props.users[user].id}
-                    value={props.users[user].id}
-                  >
-                    {props.users[user].name}
-                  </MenuItem>
-                ))}
-              </TextField>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                disabled={user === ""}
-                sx={{
-                  mt: 3,
-                  mb: 2,
-                }}
-                onClick={(e) => handleSubmit(e)}
-              >
-                Submit
-              </Button>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">user</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={user}
+                  label="user"
+                  fullWidth
+                  onChange={(e) => changeUser(e.target.value)}
+                >
+                  {Object.keys(props.users).map((user) => (
+                    <MenuItem
+                      key={props.users[user].id}
+                      value={props.users[user].id}
+                      onChange={(e) => changeUser(e.target.value)}
+                    >
+                      {props.users[user].name}
+                    </MenuItem>
+                  ))}
+                </Select>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  disabled={user === ""}
+                  sx={{
+                    mt: 3,
+                    mb: 2,
+                  }}
+                  onClick={(e) => handleSubmit(e)}
+                >
+                  Submit
+                </Button>
+              </FormControl>
             </Box>
           </Box>
         </Grid>

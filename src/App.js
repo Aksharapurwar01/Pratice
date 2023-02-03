@@ -17,11 +17,11 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App(props) {
   useEffect(() => {
     props.dispatch(handleInitialData());
-  }, []);
+  });
 
   const logout = (e) => {
     e.preventDefault();
-    props.dispatch(setAuthedUser(null));
+    props.dispatch(setAuthedUser(""));
   };
   return (
     <Fragment>
