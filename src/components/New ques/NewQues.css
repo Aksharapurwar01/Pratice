@@ -5,13 +5,10 @@
 
 .option{
     margin-bottom: 15px !important;
+    height: 30px;
 }
 
 .input{
     display: flex;
     flex-direction: column;
-}
-
-input{
-    height: 30px;
 }
