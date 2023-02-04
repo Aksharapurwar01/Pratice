@@ -11,13 +11,13 @@ import MenuItem from "@mui/material/MenuItem";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthedUser } from "../../actions/authedUser";
-import "./login.css";
+import "./Signin.css";
 import history from "../../history";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-function Login(props) {
+function Signin(props) {
   const theme = createTheme();
   const [user, setUser] = useState("");
   const navigate = useNavigate();
@@ -151,4 +151,5 @@ const mapStateToProps = ({ users, authedUser }) => ({
   authedUser,
 });
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(Signin);
+

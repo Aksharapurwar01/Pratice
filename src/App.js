@@ -1,6 +1,6 @@
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Login from "./components/Login/Login";
+import Signin from "./components/Signin/Signin";
 import Navbar from "./components/Navbar/Navbar";
 import { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
@@ -34,7 +34,7 @@ function App(props) {
         {props.loading === true ? null : (
           <>
             <Routes>
-              <Route path="/login" exact element={<Login />} />
+              <Route path="/login" exact element={<Signin />} />
               <Route element={<ProtectedRoute user={props.authedUser} />}>
                 <Route path="/" exact element={<Dashboard />}></Route>
                 <Route path="/leaderboard" exact element={<Leaderboard />} />
