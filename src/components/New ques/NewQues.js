@@ -38,7 +38,7 @@ function NewQues(props) {
               value={optionOneText}
               data-testid="input-one"
               onChange={(e) => {
-                setoptionOneText(e.target.value);
+                setoptionOneText(e.target.value.trimStart());
               }}
               className="option"
               placeholder="option1"
@@ -49,7 +49,7 @@ function NewQues(props) {
               value={optionTwoText}
               data-testid="input-two"
               onChange={(e) => {
-                setoptionTwoText(e.target.value);
+                setoptionTwoText(e.target.value.trimStart());
               }}
               className="option"
               placeholder="option2"
