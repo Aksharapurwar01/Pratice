@@ -100,4 +100,10 @@ const mapStateToProps = ({ questions, users, authedUser }) => {
   };
 };
 
+Dashboard.propTypes = {
+  users: PropTypes.object,
+  authedUser: PropTypes.string,
+  questions: PropTypes.object,
+};
+
 export default connect(mapStateToProps)(Dashboard);

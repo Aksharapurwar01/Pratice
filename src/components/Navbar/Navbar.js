@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
+import { PropTypes } from "prop-types";
 
 export default function Navbar(props) {
   return (
@@ -37,3 +38,7 @@ export default function Navbar(props) {
     </>
   );
 }
+
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+};

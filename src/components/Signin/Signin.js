@@ -16,6 +16,7 @@ import history from "../../history";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { PropTypes } from "prop-types";
 
 function Signin(props) {
   const theme = createTheme();
@@ -151,5 +152,9 @@ const mapStateToProps = ({ users, authedUser }) => ({
   authedUser,
 });
 
-export default connect(mapStateToProps)(Signin);
+Signin.propTypes = {
+  users: PropTypes.object.isRequired,
+  authedUser: PropTypes.string.isRequired,
+};
 
+export default connect(mapStateToProps)(Signin);

@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { formatQuestion, formatDate } from "../../utils/helpers";
 import CardMedia from "@mui/material/CardMedia";
 import { useNavigate } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
 function Ques(props) {
   const { name, id, avatar, timestamp, optionOne, optionTwo, hasVoted } =
@@ -75,6 +76,12 @@ const mapStateToProps = ({ authedUser, users, questions }, { id }) => {
       ? formatQuestion(question, users[question.author], authedUser)
       : null,
   };
+};
+
+Ques.propTypes = {
+  users: PropTypes.object,
+  authedUser: PropTypes.string.isRequired,
+  questions:PropTypes.object
 };
 
 export default connect(mapStateToProps)(Ques);
