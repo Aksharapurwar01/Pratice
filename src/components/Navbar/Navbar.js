@@ -38,7 +38,3 @@ export default function Navbar(props) {
     </>
   );
 }
-
-Navbar.propTypes = {
-  logout: PropTypes.func.isRequired,
-};
