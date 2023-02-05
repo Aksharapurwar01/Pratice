@@ -6,10 +6,22 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import PageNotFound from "../PageNotFound/PageNotFound";
+import { useState, useEffect } from "react";
 
 function PollResult(props) {
   let { id } = useParams();
+  const [questionRendering, setQuestionRendering] = useState(false);
 
+  useEffect(() => {
+    if (props.questions[id]) {
+      setQuestionRendering(true);
+    }
+  }, [props.questions,id]);
+
+  if (!questionRendering) {
+    return <PageNotFound />;
+  }
   const pollResultObj = {
     authorId: props.questions[id].author,
     authorName: props.users[props.questions[id].author].name,

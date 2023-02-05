@@ -12,11 +12,24 @@ import { handleAddAnswer } from "../../actions/questions";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import { RadioGroup, Radio } from "react-radio-group";
+import PageNotFound from "../PageNotFound/PageNotFound";
+import { useEffect } from "react";
 
 function PollForm(props) {
   let { id } = useParams();
   const navigate = useNavigate();
   const [optionSelected, setOptionSelected] = useState("");
+  const [questionRendering, setQuestionRendering] = useState(false);
+
+  useEffect(() => {
+    if (props.questions[id]) {
+      setQuestionRendering(true);
+    }
+  }, [props.questions,id]);
+
+  if (!questionRendering) {
+    return <PageNotFound />;
+  }
 
   const pollQuestionData = {
     authorId: props.questions[id].author,
