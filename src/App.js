@@ -13,6 +13,7 @@ import { setAuthedUser } from "../src/actions/authedUser";
 import PollResult from "./components/PollResult/PollResult";
 import PollForm from "./components/Poll Form/PollForm";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App(props) {
   useEffect(() => {
@@ -46,7 +47,7 @@ function App(props) {
                 />
                 <Route exact path="/questions/:id" element={<PollForm />} />
               </Route>
-              <Route path="*" element={<p>404! page not found</p>} />
+              <Route path="*" element={<PageNotFound/>} />
             </Routes>
           </>
         )}
